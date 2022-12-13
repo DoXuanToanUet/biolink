@@ -1,0 +1,57 @@
+.biolink-layout1{
+    max-width: 480px;
+    margin: 0px auto !important;
+    text-align: center;
+    padding:50px 0px;
+    position: relative;
+    z-index: 2;
+    .bio-img{
+        img{
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    }
+    .bio-name{
+        font-size: 20px;
+        color: #0D0C22;
+        font-weight: bold;
+        margin-top: 15px;
+    }
+    .bio-desc{
+        font-size: 18px;
+        padding: 12px 0px;
+    }
+    .bio-linkItem{
+        background: #fff;
+        padding: 10px;
+        margin-bottom: 15px;
+        transition: transform .15s cubic-bezier(.17,.67,.29,2.71) 0s;
+        box-shadow: 0px 6px 14px -6px rgba(24, 39, 75, 0.12), 0px 10px 32px -4px rgba(24, 39, 75, 0.1), inset 0px 0px 2px 1px rgba(24, 39, 75, 0.05);
+        a{
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            min-height: 45px;
+        }
+        &:hover{
+            transform: translate3d(0px, 0px, 0px) scale(1.015);
+        }
+        .icon{
+            display: flex;
+            align-items: center;
+        }
+        svg{
+            width: 40px;
+            height: 40px;
+        }
+        .bio-linkText{
+            font-size: 16px;
+            font-weight: bold;
+            color: #0D0C22;
+            width: calc(100% - 45px);
+        }
+    }
+    
+}

@@ -1,0 +1,209 @@
+.devlogin {
+  position: relative;
+  z-index: 3;
+  height: 100vh;
+}
+.devlogin .login-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+.devlogin .devAccount-form-wrapper {
+  top: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  max-width: 400px;
+  padding: 32px;
+  border-radius: 8px;
+  width: 400px;
+}
+.devlogin .devAccount-item {
+  position: relative;
+  margin-top: 10px;
+}
+.devlogin .devAccount-item input {
+  width: 100%;
+}
+.devlogin .devAccount-item svg {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  width: 16px;
+  height: 16px;
+  transform: translateY(-50%);
+}
+.devlogin .devAccount-item svg fill {
+  color: #eee;
+}
+.devlogin .devAccount-item.devRegis-itemChoose {
+  display: flex;
+  align-items: center;
+}
+.devlogin .devAccount-item .Regislink {
+  margin: 4px;
+}
+
+#devRegis-btn, #devLogin-btn, #devLostPass-btn {
+  background: linear-gradient(79.12deg, #531f8f 24.63%, #f0407b 121.89%);
+  width: 100%;
+  color: #fff;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  padding: 13px;
+  border-radius: 4px;
+  transition: all 0.4s ease;
+  letter-spacing: 4px;
+}
+#devRegis-btn:hover, #devLogin-btn:hover, #devLostPass-btn:hover {
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+.have-regis {
+  display: block;
+  padding-bottom: 10px;
+}
+.have-regis a {
+  text-decoration: none;
+  color: #f0407b;
+  transition: all 0.3s ease;
+}
+.have-regis a:hover {
+  text-decoration: underline;
+}
+
+.devAccount-alert .error {
+  color: red;
+  padding: 10px 0px 0px;
+}
+
+.show-password-icon:hover {
+  cursor: pointer;
+}
+
+#forgotpwd .error {
+  color: red;
+  line-height: 1.5;
+  padding-bottom: 15px;
+}
+#forgotpwd .success {
+  color: #198754;
+  background: none;
+  line-height: 1.5;
+  padding-bottom: 15px;
+}
+#forgotpwd .loader {
+  border: 10px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 10px solid #0d6efd;
+  width: 30px;
+  height: 30px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+  display: none;
+  margin: 0px auto;
+}
+@-webkit-keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 575px) {
+  .devlogin .devAccount-form-wrapper {
+    width: 100%;
+  }
+}
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+input {
+  height: 45px;
+  border: 1px solid #eee;
+  outline: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+input:focus {
+  border: 1px solid #f0407b;
+}
+
+button[type=submit] {
+  min-width: 100px;
+  background: unset;
+  padding: 16px;
+  border: none;
+  margin: 15px 0px;
+}
+
+a {
+  text-decoration: none;
+}
+
+::-moz-selection {
+  color: #fff;
+  background: #0d6efd;
+}
+
+::selection {
+  color: #fff;
+  background: #0d6efd;
+}
+
+html {
+  height: 100%;
+  position: relative;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
+  background-color: rgb(145, 142, 142);
+}
+
+body::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: #eee;
+}
+
+body::-webkit-scrollbar-track {
+  border-radius: 4px;
+  margin: 8px;
+  padding-right: 6px;
+}/*# sourceMappingURL=custom.css.map */

@@ -1,0 +1,41 @@
+html{
+    height: 100%;
+    position: relative;
+}
+.error404{
+    font-family: Helvetica, Arial, Sans-Serif;
+    width: 100%;
+    background: rgb(7,11,30);
+    height: 100%;
+    margin: 0px;
+    .error404-wrapper{
+        display: flex;
+        align-items: center;
+        top: 50%;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+        font-size: 30px;
+        img{
+            width: 100%;
+            height: auto;
+        }
+        .btn404{
+            background: linear-gradient(79.12deg, #531f8f 24.63%, #f0407b 121.89%);
+            padding: 12px 18px;
+            font-size: 18px;
+            color: #fff;
+            border-radius: 6px;
+            text-decoration: none;
+        }
+    }
+}
+@media (max-width:575px){
+    .error404 .error404-wrapper{
+        top: 50%;
+        left: unset;
+        transform: translateY(-50%);
+        font-size: 25px;
+    }
+}

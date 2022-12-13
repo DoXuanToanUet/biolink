@@ -1,0 +1,1 @@
+<p><?php echo block_field('new-field-1'); ?></p>

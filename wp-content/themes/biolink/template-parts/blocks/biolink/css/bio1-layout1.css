@@ -1,0 +1,55 @@
+.biolink-layout1 {
+  max-width: 480px;
+  margin: 0px auto !important;
+  text-align: center;
+  padding: 50px 0px;
+  position: relative;
+  z-index: 2;
+}
+.biolink-layout1 .bio-img img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.biolink-layout1 .bio-name {
+  font-size: 20px;
+  color: #0D0C22;
+  font-weight: bold;
+  margin-top: 15px;
+}
+.biolink-layout1 .bio-desc {
+  font-size: 18px;
+  padding: 12px 0px;
+}
+.biolink-layout1 .bio-linkItem {
+  background: #fff;
+  padding: 10px;
+  margin-bottom: 15px;
+  transition: transform 0.15s cubic-bezier(0.17, 0.67, 0.29, 2.71) 0s;
+  box-shadow: 0px 6px 14px -6px rgba(24, 39, 75, 0.12), 0px 10px 32px -4px rgba(24, 39, 75, 0.1), inset 0px 0px 2px 1px rgba(24, 39, 75, 0.05);
+}
+.biolink-layout1 .bio-linkItem a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  min-height: 45px;
+}
+.biolink-layout1 .bio-linkItem:hover {
+  transform: translate3d(0px, 0px, 0px) scale(1.015);
+}
+.biolink-layout1 .bio-linkItem .icon {
+  display: flex;
+  align-items: center;
+}
+.biolink-layout1 .bio-linkItem svg {
+  width: 40px;
+  height: 40px;
+}
+.biolink-layout1 .bio-linkItem .bio-linkText {
+  font-size: 16px;
+  font-weight: bold;
+  color: #0D0C22;
+  width: calc(100% - 45px);
+}/*# sourceMappingURL=bio1-layout1.css.map */

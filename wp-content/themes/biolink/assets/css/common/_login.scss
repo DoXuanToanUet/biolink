@@ -1,0 +1,122 @@
+.devlogin{
+    position: relative;
+    z-index: 3;
+    height: 100vh;
+    .login-title{
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 15px;
+    }
+    .devAccount-form-wrapper{
+        top: 50%;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #fff;
+        max-width: 400px;
+        padding: 32px;
+        border-radius: 8px;
+        width: 400px;
+    }
+    .devAccount-item{
+        position: relative;
+        margin-top: 10px;
+        input{
+            width: 100%;
+        }
+        svg{
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            width: 16px;
+            height: 16px;
+            transform: translateY(-50%);
+            fill{
+                color: #eee;
+            }
+        }
+        &.devRegis-itemChoose{
+            display: flex;
+            align-items: center;
+        }
+        .Regislink{
+            margin:4px;
+        }
+    }
+}
+#devRegis-btn,#devLogin-btn,#devLostPass-btn{
+    background: linear-gradient(79.12deg, #531f8f 24.63%, #f0407b 121.89%);
+    width: 100%;
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    padding: 13px;
+    border-radius: 4px;
+    transition: all 0.4s ease;
+    letter-spacing: 4px;
+    &:hover{
+        cursor: pointer;
+        opacity: 0.9;
+    }
+}
+.have-regis{
+    display: block;
+    padding-bottom: 10px;
+    a{
+        text-decoration: none;
+        color: #f0407b;
+        transition: all 0.3s ease;
+        &:hover{
+            text-decoration: underline; 
+        }
+    }
+}
+.devAccount-alert{
+    .error{
+        color: red;
+        padding:10px 0px 0px;
+    }
+}
+.show-password-icon{
+    &:hover{
+        cursor: pointer;
+    }
+}
+#forgotpwd {
+    .error{
+        color: red;
+        line-height: 1.5;
+        padding-bottom:15px;
+    }
+    .success{
+        color: #198754;
+        background: none;
+        line-height: 1.5;
+        padding-bottom:15px;
+    }
+    .loader {
+        border: 10px solid #f3f3f3;
+        border-radius: 50%;
+        border-top: 10px solid #0d6efd;
+        width: 30px;
+        height: 30px;
+        -webkit-animation: spin 2s linear infinite;
+        animation: spin 2s linear infinite;
+        display: none;
+        margin: 0px auto;
+    }
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); } 
+    }
+}
+
+@media (max-width:575px){
+    .devlogin {
+        .devAccount-form-wrapper{
+            width: 100%;
+        }
+    }
+}
