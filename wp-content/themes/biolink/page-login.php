@@ -6,7 +6,7 @@
     <?php //wp_head(); ?>
     <title><?php is_front_page() ? bloginfo('description') : wp_title(''); ?></title>
 </head>
-<link rel="stylesheet" href="<?= home_url(); ?>/wp-content/themes/biolink/assets/css/custom.css">
+<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/css/custom.css">
 <style>
     .bio-login{
         background : url(<?php echo get_field("bio_loginImg"); ?>) no-repeat;
@@ -24,6 +24,9 @@
         height:100%;
         background:linear-gradient(180deg,rgba(0,0,0,.8),rgba(0,0,0,.4),rgba(0,0,0,.8));
         z-index: 1;
+    }
+    .bio-content{
+        padding:0px 15px;
     }
 </style>
 <body class="bio-login">
@@ -50,6 +53,7 @@
                         <button type="submit" name="btnregister" id="devLogin-btn" class="button">Đăng nhập</button>
                         <p class="text-center have-regis">Bạn chưa có tài khoản? <a href="/register" class="login-link">Đăng ký</a></p>
                         <p class="text-center have-regis"><a href="/lost-password" class="login-link">Quên mật khẩu ?</a></p>
+                        <p class="text-center have-regis"><a href="<?php echo home_url(); ?>" class="login-link">Trang chủ</a></p>
                         <?php wp_nonce_field( 'ajax-login-nonce', 'securitylogin' ); ?>
                         <input type="hidden" name="url_ajax" value="<?= admin_url('admin-ajax.php');?>">
                         

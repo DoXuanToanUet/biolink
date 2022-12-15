@@ -25,18 +25,36 @@
         });
 
         $('#btn-menu-responsive').click (function (){
-            $('.m-menu').toggleClass('active');
-            $('#header').toggle();
+            $(this).toggleClass('active');
+            
+            $('.desktop-menu').toggleClass('active');
             $("body").toggleClass("no-scroll");
         })
-        $(document).on('click', '.m-overlay',function (e) {
-            // if ($(e.target).closest(".popup-contact").length === 0) {
-                $('.m-menu').toggleClass('active');
-                $('#header').toggle();
-                $("body").toggleClass("no-scroll");
-            // }
+        // $(document).on('click', '.m-overlay',function (e) {
+        //     // if ($(e.target).closest(".popup-contact").length === 0) {
+        //         $('.m-menu').toggleClass('active');
+        //         $('#header').toggle();
+        //         $("body").toggleClass("no-scroll");
+        //     // }
+        // });
+         //BEGIN
+         $(".accordion__title").on("click", function(e) {
+
+            e.preventDefault();
+            console.log('this is ');
+            var $this = $(this);
+
+            if (!$this.hasClass("accordion-active")) {
+                $(".accordion__content").slideUp(400);
+                $(".accordion__title").removeClass("accordion-active");
+                $('.accordion__arrow').removeClass('accordion__rotate');
+            }
+
+            $this.toggleClass("accordion-active");
+            $this.next().slideToggle();
+            $('.accordion__arrow',this).toggleClass('accordion__rotate');
         });
-        
+        //END
 
         /* ********************************
             Show hide register password
@@ -160,6 +178,62 @@
             
         })
        
+
+        // 
+         /*Load Ajax Post*/
+         var ajax_url = $("input[name='url_ajax']").val();
+ 
+         $('.blog-content ').on('click', '.paginate_links a', function (e) {
+            e.preventDefault();
+
+            // return false;
+            var hrefThis = $(this).attr('href');
+            console.log(hrefThis);
+            var paged = hrefThis.match(/\/\d+\//)[0];
+            paged = paged.match(/\d+/)[0];
+            var catId =8;
+            console.log(paged);
+            if (!paged) paged = 1;
+            $.ajax({
+                type: "post",
+                dataType: "json",
+                url: ajax_url,
+                data: {
+                    action: "ajax_load_post",
+                    ajax_paged: paged,
+                    catId: catId,
+                },
+                context: this,
+                beforeSend: function () {
+                    $('.blog-spin').toggleClass('active');
+                    // $('.progress').width('0%');
+                    // $('.progress').toggleClass('hide');
+                },
+                success: function (response) {
+                    console.log(response);
+                    if (response.success) {
+                        // $('.spin').width('100%');
+                        // $(response.data).addClass('holder');
+                        // $('.paginate_links').hide();
+                        // $('.progress').toggleClass('hide');
+                        // $('.progress').width('0%');
+                        $('.blog-spin').toggleClass('active');
+                        // $('.progress').toggleClass('hide');
+                        $('.blog-content ').empty();
+                        $('.blog-content ').append($(response.data));
+                        // $('.blog-spin').hide();
+                    }
+                    // $listitemcontent.removeClass('active');
+                    // $('html, body').animate({
+                    //     scrollTop: $('#ff-section-main').offset().top
+                    // }, 300);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    //Làm gì đó khi có lỗi xảy ra
+                    console.log('The following error occured: ' + textStatus, errorThrown);
+                }
+            });
+        });
     })
     
 })(jQuery);

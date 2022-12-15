@@ -1,0 +1,32 @@
+.c-content{
+    .container{
+        max-width: 1200px;
+    }
+    padding: 50px 0px;
+    ul{
+        list-style: none;
+    }
+    .c-sidebar>ul>li{
+        margin-bottom: 20px;
+        &>a{
+            display: block;
+            text-decoration: none;
+            color: #1A1616;
+            line-height: 1.4;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 18px;
+            padding: 5px 0;
+        }
+        ul li a{
+            color: #8C8C8C;
+            font-size: 17px;
+            font-weight: 600;
+            padding: 8px 0;
+            text-decoration: none;
+            line-height: 1.2;
+            display: inline-block;
+        }
+    }
+   
+}

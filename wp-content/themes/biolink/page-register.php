@@ -81,6 +81,7 @@
                         </div>
                         <button type="submit" name="btnregister" id="devRegis-btn" class="button">Đăng ký</button>
                         <p class="text-center have-regis">Bạn đã có tài khoản? <a href="/login" class="login-link">Đăng nhập</a></p>
+                        <p class="text-center have-regis"><a href="<?php echo home_url(); ?>" class="login-link">Trang chủ</a></p>
                         <?php wp_nonce_field( 'ajax-regis-nonce', 'securityregis' ); ?>
                         <input type="hidden" name="url_ajax" value="<?= admin_url('admin-ajax.php');?>">
                         

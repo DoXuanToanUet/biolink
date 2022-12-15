@@ -1,0 +1,29 @@
+.single{
+    .breadcrumb{
+        display: flex;
+        list-style: none;
+        gap: 10px;
+    }
+    P,h2,h3,h4,h5,h6{
+        margin-bottom: 15px;
+    }
+    .view,.author-name{
+
+        &::before{
+            content: "|";
+            padding: 0 10px 0 8px;  
+        }
+    }
+    .post-time {
+        .item{
+            color: #8694a3 ;
+        }
+    }
+}
+@media (max-width:991px){
+    .single{
+        .post-title{
+            font-size: 30px;
+        }
+    }
+}

@@ -1,3 +1,4 @@
+$main_bkg : #ff3850;
 .text-center{
     text-align: center;
 }
@@ -6,6 +7,9 @@
 }
 .text-right{
     text-align: right;
+}
+.fw-bold{
+    font-weight: bold;
 }
 input{
     height: 45px;
@@ -38,4 +42,45 @@ a{
 html{
     height: 100%;
     position: relative;
+}
+img{
+    max-width: 100%;
+    height:auto;
+}
+
+.common-btn{
+    background: $main_bkg;
+    color: #fff;
+    padding: 5px 16px;
+    border-radius: 3px;
+    font-weight: bold;
+    min-height: 45px;
+    margin-bottom: 15px;
+}
+
+body, input, select, optgroup, textarea{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    line-height: 1.6;
+}
+svg{
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+}
+.flex-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.flex-normal{
+    display: flex;
+    align-items: center;
+}
+.no-scroll{
+    overflow: hidden;
+}
+a{
+    color: #000;
 }

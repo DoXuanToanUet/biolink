@@ -6,7 +6,7 @@
 
     // wp_enqueue_script('BootstrapJs', get_template_directory_uri() . '/assets/plugins/bootstrap/bootstrap.bundle.min.js', array(), $version, true);
     wp_enqueue_script('MainJs', get_template_directory_uri() . '/assets/js/main.js', array(), $version, true);
-    wp_enqueue_script('jquery-ui-draggable');
+    // wp_enqueue_script('jquery-ui-draggable');
 }
 
 add_action('wp_enqueue_scripts', 'add_theme_scripts');
@@ -79,6 +79,8 @@ add_action('after_setup_theme','theme_setup');
 require get_template_directory() . '/inc-function/inc-ajaxregis.php';
 require get_template_directory() . '/inc-function/inc-ajaxlogin.php';
 require get_template_directory() . '/inc-function/inc-ForgotPassword.php';
+require get_template_directory() . '/inc-function/inc-corenavi-ajax.php';
+require get_template_directory() . '/template-page/itemBlog.php';
 
 // $test= 'this is a test';
 // echo  "<p>{$test}</p>";
@@ -693,7 +695,109 @@ function dev_setup()
     register_nav_menus(array(
         'mainmenu'   => __('Main menu', ''),
         'footermenu' => __('Footer menu', ''),
+        'footermenu2' => __('Footer menu2', ''),
+        'footermenu3' => __('Footer menu3', ''),
+        'sidebarSupport' => __('Sidebar Hỗ trợ', ''),
     ));
 }
 
 add_action('after_setup_theme', 'dev_setup');
+
+
+//Theme Options
+if (function_exists('acf_add_options_page')) {
+
+    acf_add_options_page(array(
+        'page_title' => 'Theme General Settings',
+        'menu_title' => 'Theme Settings',
+        'menu_slug'  => 'theme-general-settings',
+        'capability' => 'edit_posts',
+        'redirect'   => false
+    ));
+
+    acf_add_options_sub_page(array(
+        'page_title'  => 'Theme Header Settings',
+        'menu_title'  => 'Header',
+        'parent_slug' => 'theme-general-settings',
+    ));
+
+    acf_add_options_sub_page(array(
+        'page_title'  => 'Theme Footer Settings',
+        'menu_title'  => 'Footer',
+        'parent_slug' => 'theme-general-settings',
+    ));
+
+    acf_add_options_sub_page(array(
+        'page_title'  => 'Theme Common Settings',
+        'menu_title'  => 'Common',
+        'parent_slug' => 'theme-general-settings',
+    ));
+
+}
+// Wp v4.7.1 and higher
+add_filter( 'wp_check_filetype_and_ext', function($data, $file, $filename, $mimes) {
+	$filetype = wp_check_filetype( $filename, $mimes );
+	return [
+		'ext'             => $filetype['ext'],
+		'type'            => $filetype['type'],
+		'proper_filename' => $data['proper_filename']
+	];
+  
+  }, 10, 4 );
+  
+  function cc_mime_types( $mimes ){
+	$mimes['svg'] = 'image/svg+xml';
+	return $mimes;
+  }
+  add_filter( 'upload_mimes', 'cc_mime_types' );
+  
+  function fix_svg() {
+	echo '<style type="text/css">
+		  .attachment-266x266, .thumbnail img {
+			   width: 100% !important;
+			   height: auto !important;
+		  }
+		  </style>';
+  }
+  add_action( 'admin_head', 'fix_svg' );
+
+
+/*-----Count View------*/
+function getPostViews($postID)
+{ // hàm này dùng để lấy số người đã xem qua bài viết
+    $count_key = 'post_views_count';
+    $count = get_post_meta($postID, $count_key, true);
+    if ($count == '') { // Nếu như lượt xem không có
+        delete_post_meta($postID, $count_key);
+        add_post_meta($postID, $count_key, '0');
+
+        return "0"; // giá trị trả về bằng 0
+    }
+
+    return $count; // Trả về giá trị lượt xem
+}
+
+
+function setPostViews($postID)
+{// hàm này dùng để set và update số lượt người xem bài viết.
+    $count_key = 'post_views_count';
+    $count = get_post_meta($postID, $count_key, true);
+    if ($count == '') {
+        $count = 0;
+        delete_post_meta($postID, $count_key);
+        add_post_meta($postID, $count_key, '0');
+    } else {
+        $count++; // cộng đồn view
+        update_post_meta($postID, $count_key, $count); // update count
+    }
+}
+
+
+//Remove Default jQuery
+if (!is_admin()) add_action("wp_enqueue_scripts", "my_jquery_enqueue", 11);
+function my_jquery_enqueue()
+{
+    wp_deregister_script('jquery');
+    wp_register_script('jquery', get_template_directory_uri() . '/assets/plugins/jquery.min.js', false, null);
+    wp_enqueue_script('jquery');
+}
