@@ -34,14 +34,37 @@ html{
 }
 body::-webkit-scrollbar {
     width: 10px;
-    background-color: rgb(145, 142, 142);
+    background-color: #eee;
 }
 body::-webkit-scrollbar-thumb {
     border-radius: 4px;
-    background-color: #eee;
+    background-color: rgb(145, 142, 142);
 }
 body::-webkit-scrollbar-track {
     border-radius: 4px;
     margin: 8px;
     padding-right: 6px;
 }
+
+.pagi,.pagi-search{
+    .paginate_links,.nav-links{
+         display: flex;
+    }
+     display: table;
+     margin: 30px auto;
+     a,span{
+         border: 1px solid #eee;
+         padding: 4px;
+         height: 40px;
+         padding: 6px 14px;
+         display: flex;
+         align-items: center;
+         &.current{
+             color: #f0407b;
+         }
+         &:hover{
+             background-color: #e9ecef;
+         }
+     }
+ }
+ 

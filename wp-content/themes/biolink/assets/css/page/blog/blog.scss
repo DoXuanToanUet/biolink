@@ -88,8 +88,60 @@
 #blog{
     position: relative;
     .page-header{
+        background-color: #ff3850;
         padding: 50px 0px;
         text-align: center;
+        margin: 0px 0px 50px;
+        &:before{
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(255, 56, 80, 1) 0%, rgba(255, 56, 80, 0.5) 50%, rgba(255, 56, 80, 1) 100%) !important;
+            display: block;
+            clear: none;
+        }
+        .search-blog{
+            position: relative;
+            z-index: 3;
+            color: #fff;
+            form{
+                max-width: 350px;
+                margin: 0px auto;
+                background: #fff;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-radius: 6px;
+                height: 50px;
+                overflow: hidden;
+                input{
+                    border: none;
+                    height: 100%;
+                    width: calc(100% - 50px);
+                }
+                button.button-search{
+                    margin: 0px;
+                    width: 50px;
+                    height: 100%;
+                    min-width: unset;
+                    cursor: pointer;
+                    padding: 0px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    &:hover{
+                        background: #eee;
+                       
+                    }
+                    svg{
+                        margin: 0px;
+                    }
+                }
+            }
+        }
     }
 }
 .progress {
@@ -107,27 +159,6 @@
 .progress.hide {
     opacity: 0;
     transition: opacity 1.3s;
-}
-.pagi{
-   .paginate_links{
-        display: flex;
-   }
-    display: table;
-    margin: 30px auto;
-    a,span{
-        border: 1px solid #eee;
-        padding: 4px;
-        height: 40px;
-        padding: 6px 14px;
-        display: flex;
-        align-items: center;
-        &.current{
-            color: #f0407b;
-        }
-        &:hover{
-            background-color: #e9ecef;
-        }
-    }
 }
 
 @media (max-width:991px){

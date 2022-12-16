@@ -179,8 +179,11 @@
         })
        
 
-        // 
-         /*Load Ajax Post*/
+        /**========================
+         * *Load Ajax Post
+        * ========================
+        */
+         
          var ajax_url = $("input[name='url_ajax']").val();
  
          $('.blog-content ').on('click', '.paginate_links a', function (e) {
@@ -234,6 +237,48 @@
                 }
             });
         });
+        // End Load ajax post 
+
+        // Begin header search 
+        $('.header-search').click( function(){
+            $('.h-search-wrap').addClass('s-active');
+            console.log('search');
+        } )
+        $(document).find('.h-search #h-search').keyup(function() {
+            var ajax_url = $(".header-search input[name='url_ajax']").val();
+            var val_search = $(this).val();
+            console.log(val_search);
+            if (val_search.length > 0) {
+                $.ajax({
+                    type: "post",
+                    dataType: "json",
+                    url: ajax_url,
+                    data: {
+                        action: "search_pro",
+                        val_search: val_search,
+                    },
+                    context: this,
+                    beforeSend: function () {
+                        $('.h-search .spinner-border').show();
+                    },
+                    success: function (response) {
+                        console.log(response);
+                        if (response.success) {
+                            $('.h-search .spinner-border').hide();
+                            $('.header-search .h-search-content').html(`${response.data}`);
+                        }
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        //Làm gì đó khi có lỗi xảy ra
+                        console.log('The following error occured: ' + textStatus, errorThrown);
+                    }
+                });
+            }else{
+                $('.header-search .h-search-content').html(`<p class=''>No search</p>`);
+            }
+        })
+        // End header search 
+
     })
     
 })(jQuery);

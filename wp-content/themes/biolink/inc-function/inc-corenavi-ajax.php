@@ -66,4 +66,52 @@ function ajax_load_post_func(){
     wp_send_json_success($content);
     die();
 }
-?>
+
+//Ajax load post
+add_action('wp_ajax_search_pro', 'search_pro_func');
+add_action('wp_ajax_nopriv_search_pro', 'search_pro_func');
+function search_pro_func(){
+    $val_search       = isset( $_POST['val_search'] ) ? (int) $_POST['val_search'] : '';
+    
+    $header_search_query = new WP_Query(array(
+        'post_type' => 'post',
+        'posts_per_page' => -1,
+        'post_status' => 'publish',
+        'order' => 'DESC',
+        'orderby' => 'DATE',
+        's'=> $val_search,
+    ));
+    if ($header_search_query->have_posts()):
+        ob_start();
+        $max_post_count = $header_search_query->post_count;
+        ?>
+            <div class="h-search-count" ><?php echo _e('Search result: <span>'.$max_post_count.'</span>','biolink'); ?></div>
+            <div class="h-search-main">
+                <?php if ($header_search_query->have_posts()):
+                    while ($header_search_query->have_posts()): $header_search_query->the_post(); ?>
+                        <div class="h-search-item d-flex">
+                            <div class="img">
+                                <a href="<?php the_permalink(); ?>" class="imgc" title="<?php the_title(); ?>">
+                                    <?php if (has_post_thumbnail()): the_post_thumbnail('search-thumb'); else:?>
+                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/search-not.jpg" alt="<?php the_title(); ?>">
+                                    <?php endif; ?>
+                                </a>
+                            </div>
+                            <div class="title">
+                                <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="flex-center">
+                                    <?php the_title() ?>
+                                </a>
+                            </div>
+                        </div>
+                    <?php
+                    endwhile;
+                endif;wp_reset_query(); ?>
+            </div>   
+        <?php $content = ob_get_clean(); ?>
+    <?php else: ?>
+        <?php wp_send_json_error('No post?'); ?>
+    <?php endif; //End news
+    wp_send_json_success($content);
+    die();
+}
+

@@ -219,6 +219,127 @@ a {
   color: green;
 }
 
+.header-search .h-search-wrap {
+  transition: 0.3s;
+  align-items: center;
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  padding: 0 15%;
+  background-color: rgba(0, 0, 0, 0.9411764706);
+  overflow: hidden;
+  opacity: 0;
+  transform: scale(0);
+}
+.header-search .h-search-wrap.s-active {
+  transform: scale(1);
+  opacity: 1;
+}
+.header-search .h-search-wrap .h-search-inpt {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  height: 100%;
+  top: 100px;
+  position: relative;
+}
+.header-search .h-search-wrap .h-search-inpt .h-search {
+  background: #fff;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+.header-search .h-search-wrap .h-search-inpt .h-search .h-search-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #eee;
+}
+.header-search .h-search-wrap .h-search-inpt .h-search input {
+  width: calc(100% - 45px);
+  border: none;
+}
+.header-search .h-search-wrap .h-search-inpt .h-search input:focus {
+  border: none;
+}
+.header-search .h-search-wrap .h-search-inpt .h-search svg {
+  width: 45px;
+  height: 25px;
+  font-size: 20px;
+  display: flex;
+  align-content: center;
+  margin-right: 0px;
+}
+.header-search .h-search-wrap .h-search-inpt .spinner-border {
+  display: none;
+  width: 25px;
+  height: 25px;
+  vertical-align: text-bottom;
+  border: 0.15em solid #ddd;
+  border-right-color: transparent;
+  border-radius: 50%;
+  -webkit-animation: spinner-border 0.75s linear infinite;
+  animation: spinner-border 0.75s linear infinite;
+}
+@-webkit-keyframes spinner-border {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes spinner-border {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.header-search .h-search-wrap .h-search-inpt .h-search-content {
+  padding: 15px;
+  max-height: 500px;
+  overflow-y: scroll;
+}
+.header-search .h-search-wrap .h-search-inpt .h-search-content::-webkit-scrollbar {
+  width: 10px;
+  background-color: #eee;
+}
+.header-search .h-search-wrap .h-search-inpt .h-search-content::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgb(145, 142, 142);
+}
+.header-search .h-search-wrap .h-search-inpt .h-search-content::-webkit-scrollbar-track {
+  border-radius: 4px;
+  margin: 8px;
+  padding-right: 6px;
+}
+.header-search .h-search-wrap .h-search-inpt .h-search-content .h-search-count {
+  color: #8694a3;
+}
+.header-search .h-search-wrap .h-search-inpt .h-search-content .h-search-count span {
+  color: #ff3850;
+}
+.header-search .h-search-wrap .h-search-inpt .h-search-content .h-search-item {
+  gap: 10px;
+  border-bottom: 1px solid #eee;
+  padding: 5px 0px;
+}
+.header-search .h-search-wrap .h-search-inpt .h-search-content .h-search-item .img {
+  height: 60px;
+  width: 60px;
+  flex-shrink: 0;
+}
+.header-search .h-search-wrap .h-search-inpt .h-search-content .h-search-item img {
+  width: 100%;
+  height: 60px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 6px;
+}
+
 @media (max-width: 991px) {
   .m-mobile, .m-menu {
     display: flex;
@@ -494,16 +615,38 @@ html {
 
 body::-webkit-scrollbar {
   width: 10px;
-  background-color: rgb(145, 142, 142);
+  background-color: #eee;
 }
 
 body::-webkit-scrollbar-thumb {
   border-radius: 4px;
-  background-color: #eee;
+  background-color: rgb(145, 142, 142);
 }
 
 body::-webkit-scrollbar-track {
   border-radius: 4px;
   margin: 8px;
   padding-right: 6px;
+}
+
+.pagi, .pagi-search {
+  display: table;
+  margin: 30px auto;
+}
+.pagi .paginate_links, .pagi .nav-links, .pagi-search .paginate_links, .pagi-search .nav-links {
+  display: flex;
+}
+.pagi a, .pagi span, .pagi-search a, .pagi-search span {
+  border: 1px solid #eee;
+  padding: 4px;
+  height: 40px;
+  padding: 6px 14px;
+  display: flex;
+  align-items: center;
+}
+.pagi a.current, .pagi span.current, .pagi-search a.current, .pagi-search span.current {
+  color: #f0407b;
+}
+.pagi a:hover, .pagi span:hover, .pagi-search a:hover, .pagi-search span:hover {
+  background-color: #e9ecef;
 }/*# sourceMappingURL=custom.css.map */

@@ -122,6 +122,127 @@
 .post-time{
     color:green;
 }
+.header-search{
+    .h-search-wrap{
+        transition: .3s;
+        align-items: center;
+        position: fixed;
+        z-index: 9998;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 100vh;
+        padding: 0 15%;
+        background-color: #000000F0;
+        overflow: hidden;
+        opacity: 0;
+        -webkit-transform: scale(0);
+        -ms-transform: scale(0);
+        transform: scale(0);
+        &.s-active{
+            transform: scale(1);
+            opacity: 1;
+        }
+        .h-search-inpt{
+            display: flex;
+            align-items: start;
+            justify-content: center;
+            height: 100%;
+            top: 100px;
+            position: relative;
+            .h-search{
+                background: #fff;
+                width: 600px;
+                display: flex;
+                flex-direction: column;
+                border-radius: 6px;
+                transition: all 0.3s ease;
+                overflow: hidden;
+                .h-search-form{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    border-bottom: 2px solid #eee;
+                }
+                input{
+                    width: calc(100% - 45px);
+                    border: none;
+                    &:focus{
+                        border: none;
+                    }
+                }
+                svg{
+                    width: 45px;
+                    height: 25px;
+                    font-size: 20px;
+                    display: flex;
+                    align-content: center;
+                    margin-right: 0px;
+                }
+            }
+            .spinner-border {
+                display: none;
+                width: 25px;
+                height: 25px;
+                vertical-align: text-bottom;
+                border: 0.15em solid #ddd;
+                border-right-color: transparent;
+                border-radius: 50%;
+                -webkit-animation: spinner-border .75s linear infinite;
+                animation: spinner-border .75s linear infinite;
+            }
+            @keyframes spinner-border {
+                100% {
+                    -webkit-transform: rotate(360deg);
+                    transform: rotate(360deg);
+                }
+            }
+            .h-search-content{
+                padding: 15px;
+                max-height: 500px;
+                overflow-y: scroll;
+                &::-webkit-scrollbar {
+                    width: 10px;
+                    background-color: #eee;
+                }
+                &::-webkit-scrollbar-thumb {
+                    border-radius: 4px;
+                   
+                    background-color: rgb(145, 142, 142);
+                }
+                &::-webkit-scrollbar-track {
+                    border-radius: 4px;
+                    margin: 8px;
+                    padding-right: 6px;
+                }
+                .h-search-count{
+                    color:#8694a3;
+                    span{
+                        color: $main_bkg;
+                    }
+                   
+                }
+                .h-search-item{
+                    gap: 10px;
+                    border-bottom: 1px solid #eee;
+                    padding: 5px 0px;
+                    .img{
+                        height: 60px;
+                        width: 60px;
+                        flex-shrink: 0;
+                    }
+                    img{
+                        width: 100%;
+                        height: 60px;
+                        object-fit: cover;
+                        border-radius: 6px;
+                    }
+                }
+            }
+        }
+    }
+}
 @media (max-width:991px){
     .m-mobile,.m-menu {
         display: flex;

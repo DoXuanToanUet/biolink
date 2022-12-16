@@ -1,0 +1,8 @@
+.search-item a {
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+.search-item a:hover {
+  color: #ff3850;
+  text-decoration: underline;
+}/*# sourceMappingURL=search.css.map */

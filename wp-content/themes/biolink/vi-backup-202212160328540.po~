@@ -1,0 +1,40 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Biolink\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-16 03:28+0000\n"
+"PO-Revision-Date: 2022-12-16 03:28+0000\n"
+"Last-Translator: \n"
+"Language-Team: Vietnamese\n"
+"Language: vi\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.3; wp-6.1.1\n"
+"X-Domain: biolink"
+
+#. Name of the template
+msgid "Bio page"
+msgstr ""
+
+#. Name of the theme
+msgid "Biolink"
+msgstr ""
+
+#. Author URI of the theme
+msgid "https://doxuantoan.com"
+msgstr ""
+
+#: search.php:16
+msgid "Search for:"
+msgstr ""
+
+#. Description of the theme
+msgid "This theme"
+msgstr ""
+
+#. Author of the theme
+msgid "toanwp"
+msgstr ""

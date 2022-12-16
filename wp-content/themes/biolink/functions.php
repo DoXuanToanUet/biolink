@@ -66,7 +66,18 @@ function theme_setup(){
         'header-text' => array( 'site-title', 'site-description' ),
     ) );
 
+ 	// additional image sizes
+    // delete the next line if you do not need additional image sizes
+    add_image_size( 'search-thumb', 60, 60,true ); //300 pixels wide (and unlimited height)
 
+	
+	/*
+	 * Make theme available for translation.
+	 * Translations can be filed in the /languages/ directory.
+	 * If you're building a theme based on Twenty Twenty, use a find and replace
+	 * to change 'twentytwenty' to the name of your theme in all the template files.
+	 */
+	load_theme_textdomain( 'biolink' );
 
 }
 add_action('after_setup_theme','theme_setup');
@@ -801,3 +812,4 @@ function my_jquery_enqueue()
     wp_register_script('jquery', get_template_directory_uri() . '/assets/plugins/jquery.min.js', false, null);
     wp_enqueue_script('jquery');
 }
+
