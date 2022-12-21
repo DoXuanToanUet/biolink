@@ -67,18 +67,19 @@ function ajax_load_post_func(){
     die();
 }
 
-//Ajax load post
+//Ajax Search Post
 add_action('wp_ajax_search_pro', 'search_pro_func');
 add_action('wp_ajax_nopriv_search_pro', 'search_pro_func');
 function search_pro_func(){
-    $val_search       = isset( $_POST['val_search'] ) ? (int) $_POST['val_search'] : '';
+    $val_search       = isset( $_POST['val_search'] ) ? $_POST['val_search'] : '';
     
     $header_search_query = new WP_Query(array(
         'post_type' => 'post',
-        'posts_per_page' => -1,
+        'posts_per_page' => 20,
         'post_status' => 'publish',
         'order' => 'DESC',
-        'orderby' => 'DATE',
+        // 'orderby' => 'title',
+        // 'search_prod_title' =>  $val_search,
         's'=> $val_search,
     ));
     if ($header_search_query->have_posts()):
@@ -93,19 +94,20 @@ function search_pro_func(){
                             <div class="img">
                                 <a href="<?php the_permalink(); ?>" class="imgc" title="<?php the_title(); ?>">
                                     <?php if (has_post_thumbnail()): the_post_thumbnail('search-thumb'); else:?>
-                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/search-not.jpg" alt="<?php the_title(); ?>">
+                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/search-not-found.jpg" alt="<?php the_title(); ?>">
                                     <?php endif; ?>
                                 </a>
                             </div>
                             <div class="title">
-                                <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="flex-center">
+                                <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="">
                                     <?php the_title() ?>
                                 </a>
+                                <div class="sub"><?php echo wp_trim_words(get_the_content(), 15, '...'); ?></div>
                             </div>
                         </div>
                     <?php
                     endwhile;
-                endif;wp_reset_query(); ?>
+                endif;wp_reset_postdata(); ?>
             </div>   
         <?php $content = ob_get_clean(); ?>
     <?php else: ?>

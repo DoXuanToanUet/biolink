@@ -85,7 +85,7 @@ function regisForm(){
                     );
                     $PageGuid = site_url() . "/".$yourNameLink;
                     $post_data = array(
-                        'post_title' => wp_strip_all_tags($yourNameLink),
+                        'post_title' => wp_strip_all_tags($first_name.' '.$last_name),
                         'post_content' => '',
                         'post_type' => 'page',
                         'post_status'   => 'publish',

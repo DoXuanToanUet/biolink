@@ -3,6 +3,8 @@
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="<?php the_field('favicon_options', 'option'); ?>">
+    <title> <?php echo is_front_page() ? bloginfo('description') : wp_title( '' ); ?></title>
     <?php wp_head(); ?>
     <?php 
         if( get_field('bio_oBkg') == true ){
@@ -31,7 +33,7 @@
 ?>
 <style>
     body{
-        background : <?php echo $bioBkg;?>  no-repeat;
+        background : <?php echo $bioBkg;?>;
         background-size:cover;
         position: relative;
         min-height:100vh;
@@ -51,9 +53,11 @@
 <div class="bio-content">
     <div class="container">
         <?php
+         if ( have_posts()  ):
             while ( have_posts() ) : the_post();  
                 the_content();
             endwhile;
+        endif;
         ?>
     </div>
 </div>

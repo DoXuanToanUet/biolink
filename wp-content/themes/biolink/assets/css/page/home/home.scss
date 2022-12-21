@@ -133,7 +133,27 @@ section{
 .accordion__item .accordion__arrow-item {
 	font-weight: 700;
 }
-
+#home-step{
+    background: #edeff7;
+    .step-item{
+        background: #fff;
+        padding: 30px;
+        border-radius: 16px;
+        height: 100%;
+        text-align: center;
+        .title{
+            font-size: 18px;
+            margin: 10px 0px 20px;
+            font-weight: bold;
+        }
+        .sub{
+            font-size: 16px;
+        }
+        img{
+            aspect-ratio: 1/1;
+        }
+    }
+}
 @media (max-width:575px){
     .ff-section-title{
         font-size: 20px;

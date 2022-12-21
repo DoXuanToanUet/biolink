@@ -30,3 +30,10 @@
     }
    
 }
+@media (max-width:991px){
+    .c-content{
+        .container .row{
+            flex-direction: column-reverse;
+        }
+    }
+}

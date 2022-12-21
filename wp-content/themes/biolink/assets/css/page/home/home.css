@@ -131,6 +131,28 @@ section {
   font-weight: 700;
 }
 
+#home-step {
+  background: #edeff7;
+}
+#home-step .step-item {
+  background: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  height: 100%;
+  text-align: center;
+}
+#home-step .step-item .title {
+  font-size: 18px;
+  margin: 10px 0px 20px;
+  font-weight: bold;
+}
+#home-step .step-item .sub {
+  font-size: 16px;
+}
+#home-step .step-item img {
+  aspect-ratio: 1/1;
+}
+
 @media (max-width: 575px) {
   .ff-section-title {
     font-size: 20px;

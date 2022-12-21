@@ -813,3 +813,26 @@ function my_jquery_enqueue()
     wp_enqueue_script('jquery');
 }
 
+
+add_action( 'admin_bar_menu', 'remove_wp_nodes', 999 );
+
+function remove_wp_nodes() 
+{
+    global $wp_admin_bar;   
+	if ( ! current_user_can('manage_options') ) {
+		$wp_admin_bar->remove_node( 'new-post' );
+		$wp_admin_bar->remove_node( 'new-link' );
+		$wp_admin_bar->remove_node( 'new-media' );
+	}
+    
+}
+
+// add_action('init','my_func');
+
+// function my_func() {
+//     global $wp_query;
+// 	echo "<pre>";
+//     var_dump($wp_query);
+// 	echo "</pre>";
+//     // or  var_dump($GLOBALS['wp_query']);
+// }

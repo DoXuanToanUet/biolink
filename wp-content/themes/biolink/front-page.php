@@ -39,7 +39,7 @@
             <?php
                 if (have_rows('feature_rp')):
                    $i=200; while (have_rows('feature_rp')) : the_row(); ?>
-                       <div class="col-lg-4" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="<?php echo $i;?>">
+                       <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="<?php echo $i;?>">
                             <img src="<?php the_sub_field('ft_img'); ?>" alt="">
                             <div class="content text-center">
                                 <div class="title"><?php the_sub_field('ft_txt'); ?></div>
@@ -98,6 +98,40 @@
         </div>
     </section>
 <?php endif; ?>
+
+
+<!--Begin  Step Biolink -->
+<?php if (get_field('step_status') == true): ?>
+    <section id="home-step">
+        <div class="container">
+            <div class="ff-section-title " data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <h2 class="text-center"><?php the_field('step_title'); ?></h2>
+            </div>
+            <div class="sub-title text-center " data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400" style="max-width:760px;margin: 0px auto 40px;">
+                <?php the_field('step_sub'); ?>
+            </div>
+            <div class="row">
+                <div class="col-lg-9 col-md-12 mx-auto">
+                    <div class="row">
+                        <?php  if (have_rows('step_rp')): $i=200; while (have_rows('step_rp')) : the_row(); ?>
+                            <div class="col-lg-4 col-md-4 mb-3">
+                                <div class="step-item " data-aos="fade-up" data-aos-duration="1000" data-aos-delay="<?php echo $i;?>">
+                                    <img src="<?php the_sub_field('img'); ?>" alt="">
+                                    <div class="content">
+                                        <div class="title"><?php the_sub_field('title'); ?></div>
+                                        <div class="sub"><?php the_sub_field('sub'); ?></div>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php $i=$i+200; endwhile;  else :endif; ?>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </section>
+<?php endif; ?>
+<!--End  Step Biolink -->
 
 <?php if (get_field('qa_status') == true): ?>
     <section id="home-qa">
