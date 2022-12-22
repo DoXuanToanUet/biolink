@@ -15,7 +15,7 @@
                             <p><?php the_field('banner_subtitle'); ?></p>
                         </div>
                         <div class=" flex-normal" >
-                            <a href="" class="common-btn flex-center">Try it demo</a>
+                            <a target="_blank" href="<?php echo home_url( ).'/register' ?>" class="common-btn flex-center">Tạo ngay</a>
                         </div>
                        
                     </div>
@@ -40,7 +40,7 @@
                 if (have_rows('feature_rp')):
                    $i=200; while (have_rows('feature_rp')) : the_row(); ?>
                        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="<?php echo $i;?>">
-                            <img src="<?php the_sub_field('ft_img'); ?>" alt="">
+                            <div class="feature-img flex-center"><img src="<?php the_sub_field('ft_img'); ?>" alt=""></div>                   
                             <div class="content text-center">
                                 <div class="title"><?php the_sub_field('ft_txt'); ?></div>
                                 <div class="sub-title"><?php the_sub_field('ft_subtxt'); ?></div>

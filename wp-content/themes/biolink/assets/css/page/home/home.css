@@ -43,6 +43,9 @@ section {
   font-weight: bold;
   padding: 10px 0px;
 }
+#home-feature img {
+  max-height: 250px;
+}
 
 #home-customize img {
   width: 100%;
@@ -151,6 +154,8 @@ section {
 }
 #home-step .step-item img {
   aspect-ratio: 1/1;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 @media (max-width: 575px) {

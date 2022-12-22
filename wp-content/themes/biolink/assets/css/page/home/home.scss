@@ -43,6 +43,9 @@ section{
             padding:10px 0px;
         }
     }
+    img{
+        max-height: 250px;
+    }
 }
 #home-customize{
     img{
@@ -151,6 +154,7 @@ section{
         }
         img{
             aspect-ratio: 1/1;
+            object-fit: contain;
         }
     }
 }
